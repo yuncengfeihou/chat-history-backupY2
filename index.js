@@ -41,7 +41,7 @@ import {
 } from '../../../utils.js'
 
 // 插件文件夹名称 (用于加载模板)
-const pluginFolderName = 'chat-history-backupM3'; // 确保这里是你的实际文件夹名
+const pluginFolderName = 'chat-history-backupY2'; // 确保这里是你的实际文件夹名
 
 // 插件的唯一 ID (用于日志和内部识别)
 const pluginId = 'chat-backup-manager-ui';
