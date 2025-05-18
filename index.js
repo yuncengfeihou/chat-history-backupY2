@@ -239,7 +239,7 @@ async function getBackupsForChat(chatKey) {
             };
         });
     } catch (error) {
-        console.error(`[${pluginId}] getBackupsForChat 失败:', error);
+        console.error(`[${pluginId}] getBackupsForChat 失败:`, error);
         return []; // 出错时返回空数组
     }
 }
