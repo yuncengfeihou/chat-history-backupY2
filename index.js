@@ -61,6 +61,13 @@ const STORE_NAME = 'backups_v2';
 let isBackupInProgress = false; // 并发控制标志
 let backupTimeout = null;       // 防抖定时器 ID
 
+// 默认设置
+const DEFAULT_SETTINGS = {
+    maxTotalBackups: 10,     // 最大备份数量
+    backupDebounceDelay: 1500, // 备份防抖延迟(毫秒)
+    debug: false              // 调试模式
+};
+
 // --- 日志函数 ---
 function logDebug(...args) {
     const settings = extension_settings[PLUGIN_NAME];
