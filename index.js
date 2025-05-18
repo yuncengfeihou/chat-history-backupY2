@@ -26,7 +26,7 @@ import {
 import {
     getContext,
     renderExtensionTemplateAsync,
-    // extension_settings,
+    extension_settings,
 } from '../../../extensions.js';
 
 import {
