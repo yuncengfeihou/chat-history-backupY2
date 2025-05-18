@@ -6,33 +6,29 @@
 // 4. 移除Web Worker，直接通过API获取和保存数据
 
 import {
-    getContext,
-    renderExtensionTemplateAsync,
-    extension_settings,
-    // --- 核心应用函数 ---
     saveSettingsDebounced,
+    getCurrentChatId,
     eventSource,
     event_types,
-    selectCharacterById,    // 用于选择角色
-    // doNewChat,              // 不再需要手动创建新聊天
-    // printMessages,          // 不再需要手动刷新聊天UI
-    // scrollChatToBottom,     // 不再需要手动滚动到底部
-    // updateChatMetadata,     // 不再需要手动更新内存元数据
-    saveChatConditional,    // 用于恢复前保存当前聊天
-    // saveChat,               // 不再需要手动调用 saveChat，直接调用后端API
-    characters,             // 需要访问角色列表来查找索引和信息
-    // getThumbnailUrl,        // 不需要
-    getRequestHeaders,      // 用于调用后端API
-    // --- 其他可能需要的函数 ---
+    messageFormatting,
+    getRequestHeaders,
+    characters,
+    openCharacterChat,
+    saveChatConditional
 } from '../../../../script.js';
 
 import {
-    // --- 群组相关函数 ---
-    select_group_chats,     // 用于选择群组聊天
-    groups,                 // 需要访问群组列表来查找信息
+    select_group_chats,
+    selected_group,
+    select_group_chats as selectGroupChatFile,
 } from '../../../group-chats.js';
 
-// 导入 Popup 类和相关工具
+import {
+    getContext,
+    renderExtensionTemplateAsync,
+    // extension_settings,
+} from '../../../extensions.js';
+
 import {
     Popup,
     POPUP_TYPE,
@@ -40,7 +36,6 @@ import {
     POPUP_RESULT,
 } from '../../../popup.js';
 
-// 导入通用工具函数
 import {
     timestampToMoment,
 } from '../../../utils.js'
